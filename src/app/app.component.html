@@ -1,6 +1,14 @@
 
 <!-- AppComponent injecte MySnap à FaceSnapComponent --> 
-<app-face-snap [faceSnap]="MySnap"></app-face-snap>
-<app-face-snap [faceSnap]="SecondSnap"></app-face-snap>
-<app-face-snap [faceSnap]="ThirdSnap"></app-face-snap>
+<!-- *ngIf="MySnap.snaps > 5: filtre 
+afficher si plus de 5 snaps
+à ajouter si besoin 
+--> 
+
+<!-- avec ngFor  -->
+
+<app-face-snap *ngFor="let faceSnap of faceSnaps" [faceSnap]="faceSnap"></app-face-snap>
+
+
+
 
