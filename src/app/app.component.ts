@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
           imageUrl: 'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg',  
           createdDate: new Date(),
           snaps: 250,
+          noSnaps : 350,
           location: 'Paris',
         },
         {
@@ -30,6 +31,7 @@ export class AppComponent implements OnInit {
           imageUrl: 'https://cdn.pixabay.com/photo/2016/11/29/13/37/christmas-1869902_1280.jpg',  
           createdDate: new Date(),
           snaps: 100,
+          noSnaps : 0,
           location: 'New York',
         },
         {
@@ -37,7 +39,8 @@ export class AppComponent implements OnInit {
           description:'Mon magnifique chat siamois',  
           imageUrl: 'https://cdn.pixabay.com/photo/2017/02/15/12/12/cat-2068462_1280.jpg',  
           createdDate: new Date(),
-          snaps: 400,
+          snaps: 400,   
+          noSnaps : 50, 
         },
 
       ];

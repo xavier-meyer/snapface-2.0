@@ -9,6 +9,7 @@ import { FaceSnap } from '../models/face-snap.model';
 export class FaceSnapComponent implements OnInit {
 
   buttonText! : string;
+  buttonTextWrong! : string;
   // @input: moyen d'injecter une propriété depuis l'extérieur d'un composant
   // propriété de type FaceSnap c'est un type personnalisé
   @Input() faceSnap! : FaceSnap;
@@ -18,6 +19,7 @@ export class FaceSnapComponent implements OnInit {
   // au moment de l'initialisation du component, on initialise les propriétés
   ngOnInit() {
     this.buttonText = 'Oh Snap!';
+    this.buttonTextWrong = 'No Snap!';
   }
 
   onSnap() {
@@ -27,6 +29,16 @@ export class FaceSnapComponent implements OnInit {
     } else {
       this.faceSnap.snaps--;
       this.buttonText = 'Oh Snap!';
+    }
+  }
+
+  noSnap() {
+    if (this.buttonTextWrong === 'No Snap!') {
+      this.faceSnap.noSnaps++;
+      this.buttonTextWrong = 'Oops, unNoSnap!';
+    } else {
+      this.faceSnap.noSnaps--;
+      this.buttonTextWrong = 'No Snap!';
     }
   }
 

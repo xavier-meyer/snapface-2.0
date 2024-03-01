@@ -1,35 +1,79 @@
 .face-snap-card {
-    box-sizing: border-box;
-    width: 50%;
-    margin: 20px auto;
-    padding: 10px 30px;
-    box-shadow: lightgray 4px 4px 20px;
-    border-radius: 0.5rem;
+box-sizing: border-box;
+width: 50%;
+margin: 20px auto;
+padding: 10px 30px;
+box-shadow: lightgray 4px 4px 20px;
+border-radius: 0.5rem;
+}
+img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+h2 {
+  margin-bottom: 0;
+}
+p {
+  font-weight: 300;
+  font-size: 16px;
+}
+.goodSnaps {
+  color: white;
+  background-color: rgb(38, 131, 54);
+  box-sizing: border-box;
+  padding: 5px 10px;
+  border: none;
+  box-shadow: lightgray 3px 3px 7px;
+  margin: 0 20px 15px 0px;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  &:active {
+    transform: translate(1px, 1px);
+    box-shadow: lightgray 0 0 5px;
+  }
+}
+.badSnaps {
+  color: white;
+  background-color: rgb(202, 34, 34);
+  box-sizing: border-box;
+  padding: 5px 10px;
+  border: none;
+  box-shadow: lightgray 3px 3px 7px;
+  margin: 0 20px 15px 0px;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  &:active {
+    transform: translate(1px, 1px);
+    box-shadow: lightgray 0 0 5px;
+  }
+}
 
+// classes qui seront appliquée si un utilisateur clique sur un bouton 
+.snappedGood {
+  background-color: rgb(47, 107, 131);
+  color: white;
+  .goodSnaps {
+    box-shadow: rgb(163, 240, 128) 3px 3px 7px;
+    color: black;
+    background-color: whitesmoke;
+    &:hover {
+      box-shadow: lightseagreen 3px 3px 7px;
     }
-    img {
-     width: 100%;
-     border-radius: 0.5rem;
+  }  
+}
+
+.snappedBad {
+  background-color: rgb(47, 107, 131);
+  color: white;
+  .badSnaps {
+    box-shadow: lightcoral 3px 3px 7px;
+    color: black;
+    background-color: whitesmoke;
+    &:hover {
+      box-shadow: lightseagreen 3px 3px 7px;
+      
     }
-    h2 {
-      margin-bottom: 0;
-    }
-    p {
-      font-weight: 300;
-      font-size: 16px;
-    }
-    button {
-      background-color: transparent;
-      box-sizing: border-box;
-      padding: 5px 10px;
-      border: none;
-      box-shadow: lightgray 3px 3px 7px;
-      margin-right: 20px;
-      outline: none;
-      font-size: 14px;
-      font-weight: 500;
-      &:active {
-        transform: translate(1px, 1px);
-        box-shadow: lightgray 0 0 5px;
-      }
-    }
+  }
+}
