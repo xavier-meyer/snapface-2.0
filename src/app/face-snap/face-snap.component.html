@@ -1,8 +1,8 @@
 
 <div class="face-snap-card" [ngClass]="{'snappedGood': buttonText === 'Oops, unSnap!' , 
 'snappedBad':buttonTextWrong === 'Oops, unNoSnap!'}" >
-    <h2>{{ faceSnap.title }}</h2>
-    <p>Mis en ligne le {{ faceSnap.createdDate | date:'dd/MM/yyyy' }}</p>
+    <h2>{{ faceSnap.title | uppercase }}</h2>
+    <p>Mis en ligne le {{ faceSnap.createdDate | date:'dd MMMM yyyy à h:mm' }}</p>
     <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
     <p>{{ faceSnap.description }}</p>
     <p *ngIf="faceSnap.location">Photo prise à {{ faceSnap.location }}.</p>
@@ -14,6 +14,7 @@
         <button class="badSnaps" (click)="noSnap()">{{ buttonTextWrong }}</button>     
         <span [ngStyle]="{ color: 'rgb( ' + faceSnap.noSnaps*2 + ',0,0)'}">👎 {{ faceSnap.noSnaps }}</span>
     </div>       
+    <p>{{ 344.36 | currency: 'EUR' }}</p>
 </div>
 
     

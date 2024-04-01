@@ -2,7 +2,7 @@
 export class FaceSnap {
 
     // si beaucoup d'arguments
-
+    id!: number;
     title!: string;
     description! : string;
     imageUrl!: string;

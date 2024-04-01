@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FaceSnap } from '../models/face-snap.model';
+import { FaceSnapService } from '../services/face-snaps.service';
 
 @Component({
   selector: 'app-face-snap',
@@ -14,7 +15,10 @@ export class FaceSnapComponent implements OnInit {
   // propriété de type FaceSnap c'est un type personnalisé
   @Input() faceSnap! : FaceSnap;
 
- 
+  
+  // on injecte le service pour se servir de la méthode snapFaceSnap 
+  constructor(private faceSnapsService: FaceSnapService){}
+
   // la méthode ngOnInit est appellée au moment de la création d'une instance du component
   // au moment de l'initialisation du component, on initialise les propriétés
   ngOnInit() {
@@ -24,20 +28,20 @@ export class FaceSnapComponent implements OnInit {
 
   onSnap() {
     if (this.buttonText === 'Oh Snap!') {
-      this.faceSnap.snaps++;
+      this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'snap');
       this.buttonText = 'Oops, unSnap!';
     } else {
-      this.faceSnap.snaps--;
+      this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'unsnap');
       this.buttonText = 'Oh Snap!';
     }
   }
 
   noSnap() {
     if (this.buttonTextWrong === 'No Snap!') {
-      this.faceSnap.noSnaps++;
+      this.faceSnapsService.noSnapFaceById(this.faceSnap.id, 'snap');
       this.buttonTextWrong = 'Oops, unNoSnap!';
     } else {
-      this.faceSnap.noSnaps--;
+      this.faceSnapsService.noSnapFaceById(this.faceSnap.id, 'unsnap');
       this.buttonTextWrong = 'No Snap!';
     }
   }
