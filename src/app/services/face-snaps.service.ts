@@ -54,7 +54,7 @@ export class FaceSnapService {
         return faceSnap;
       }
     }
-
+    
     /* literal types */
     // méthode pour ajouter ou enlever des snaps
     snapFaceSnapById(faceSnapId: number, snapType: 'snap' | 'unsnap'): void {

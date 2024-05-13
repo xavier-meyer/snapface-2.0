@@ -1,0 +1,41 @@
+.landing-block {
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+
+  p {
+    font-size: 5rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    border: 1rem double;
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+  }
+
+  .landing-links {
+    width: 100%;
+    text-align: center;
+  }
+
+  .goSnapface {
+    background-color: transparent;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    border: none;
+    box-shadow: rgb(20, 19, 19) 3px 3px 7px;
+    margin-right: 20px;
+    outline: none;
+    font-size: 20px;
+    font-weight: 500;
+    &:active {
+      transform: translate(1px, 1px);
+    }
+    &:hover {
+      box-shadow: rgb(172, 77, 77) 0 0 5px;
+      color:white;
+      background-color: black;
+    }
+  }  
+}  
+

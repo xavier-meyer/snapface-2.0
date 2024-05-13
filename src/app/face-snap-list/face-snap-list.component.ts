@@ -18,7 +18,8 @@ export class FaceSnapListComponent implements OnInit {
     this.faceSnaps = this.faceSnapsService.getAllFaceSnaps();
 
   }
-   
+
+  
 }
 
 // on crée un nouvel objet en instanciant la class FaceSnap

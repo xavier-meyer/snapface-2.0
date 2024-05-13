@@ -1,0 +1,16 @@
+footer {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+   a {
+      color: black;
+      background-color: #EEE;
+      padding: 0.5rem;
+      border-radius: 0.4rem;
+      display: inline-block;
+      margin: 2rem 0.5rem 2rem 0.5rem; 
+      text-decoration: none;
+   }
+}
+
