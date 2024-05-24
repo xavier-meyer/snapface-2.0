@@ -1,30 +1,36 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FaceSnap } from '../models/face-snap.model';
 import { FaceSnapService } from '../services/face-snaps.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-face-snap',
-  templateUrl: './face-snap.component.html',
-  styleUrl: './face-snap.component.scss'
+  selector: 'app-single-face-snap',
+  templateUrl: './single-face-snap.component.html',
+  styleUrl: './single-face-snap.component.scss'
 })
-export class FaceSnapComponent implements OnInit {
+export class SingleFaceSnapComponent implements OnInit {
 
   buttonText! : string;
   buttonTextWrong! : string;
   // @input: moyen d'injecter une propriété depuis l'extérieur d'un composant
   // propriété de type FaceSnap c'est un type personnalisé
-  @Input() faceSnap! : FaceSnap;
+  faceSnap! : FaceSnap;
 
+  
   // on injecte le service pour se servir de la méthode snapFaceSnap 
   constructor(private faceSnapsService: FaceSnapService,
-              private router : Router) {}                                  
+              private route: ActivatedRoute) {}
 
   // la méthode ngOnInit est appellée au moment de la création d'une instance du component
   // au moment de l'initialisation du component, on initialise les propriétés
   ngOnInit() {
     this.buttonText = 'Oh Snap!';
     this.buttonTextWrong = 'No Snap!';
+    /* recuperer le paramètre 'id' du facesnap */
+    const faceSnapId = +this.route.snapshot.params['id'];
+    /* initialiser la propriété facesnap */
+    this.faceSnap = this.faceSnapsService.getFaceSnapById(faceSnapId);
+    
   }
 
   onSnap() {
@@ -46,12 +52,6 @@ export class FaceSnapComponent implements OnInit {
       this.buttonTextWrong = 'No Snap!';
     }
   }
-
-  onViewFaceSnap() : void {
-    this.router.navigateByUrl(`facesnaps/${this.faceSnap.id}`);
-
-
-  } 
 
 }
 

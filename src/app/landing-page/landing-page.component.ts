@@ -15,7 +15,7 @@ constructor(private router: Router){};
 /* méthode pour se rediriger vers la page facesnap */
 
 onContinue(): void {
-this.router.navigateByUrl('facesnaps');
+  this.router.navigateByUrl('facesnaps');
 
 }
 

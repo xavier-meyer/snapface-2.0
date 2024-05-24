@@ -10,6 +10,7 @@ import { FaceSnapListComponent } from './face-snap-list/face-snap-list.component
 import { HeaderComponent } from './header/header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FooterComponent } from './footer/footer.component';
+import { SingleFaceSnapComponent } from './single-face-snap/single-face-snap.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent,
     LandingPageComponent,
     FooterComponent,
+    SingleFaceSnapComponent,
   
   ],
   imports: [
