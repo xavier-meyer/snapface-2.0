@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { interval, Observable } from 'rxjs';
-import { map, filter, tap } from 'rxjs/operators';
+import { interval, Observable, of } from 'rxjs';
+import { concatMap, mergeMap, exhaustMap, delay, switchMap, take , map, filter, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -10,26 +10,41 @@ import { map, filter, tap } from 'rxjs/operators';
 export class AppComponent implements OnInit {
 
   interval$! : Observable<string>;
+
+  redTrainsCalled = 0;
+  yellowTrainsCalled = 0;
  
   ngOnInit() {
-    /* methode pipe: appliquer un opérateur à un observable ici, map est l'opérateur */
-    /* opérateur map : transformer les émissions des observables */
-    /* opérateur filter : filtrer les émissions */
-    this.interval$ = interval(1000).pipe(
-      filter( value => value % 3 === 0 && value > 0),
-      map( value => value % 2 === 0 ? 
-        `${ value } est un nombre pair et un nombre divisible par 3` :
-        `${ value } est un nombre impair et un nombre divisible par 3`
-      ),
-    tap( message => this.logger(message))
-    );
-  }   
+    
+    // 1/ opérateur haut niveau
 
-  logger(message: string) {
-    console.log(`${ message } et ceci s'autodétruira dans 20 secondes.`);
+  interval(500).pipe(
+    take(10),
+    map(value => value % 2 === 0 ? 'rouge' : 'jaune'),
+    tap(color => console.log(`La lumière s'allume en %c${color}`, `color: ${this.translateColor(color)}`)),
+    switchMap(color => this.getTrainObservable$(color)),
+    tap(train => console.log(`Train %c${train.color} ${train.trainIndex} arrivé !`, `font-weight: bold; color: ${this.translateColor(train.color)}`))
+    ).subscribe();
+  }
+
+  getTrainObservable$(color: 'rouge' | 'jaune') {
+    const isRedTrain = color === 'rouge';
+    isRedTrain ? this.redTrainsCalled++ : this.yellowTrainsCalled++;
+    const trainIndex = isRedTrain ? this.redTrainsCalled : this.yellowTrainsCalled;
+    console.log(`Train %c${color} ${trainIndex} appelé !`, `text-decoration: underline; color: ${this.translateColor(color)}`);
+    return of({ color, trainIndex }).pipe(
+    delay(isRedTrain ? 5000 : 6000)
+    );
+  }
+
+  translateColor(color: 'rouge' | 'jaune') {
+  return color === 'rouge' ? 'red' : 'yellow';
   }
 }  
 
+    
+ 
 
 
   
+
