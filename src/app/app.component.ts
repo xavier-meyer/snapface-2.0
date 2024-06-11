@@ -15,11 +15,11 @@ export class AppComponent implements OnInit {
   yellowTrainsCalled = 0;
  
   ngOnInit() {
-    
+   
     // 1/ opérateur haut niveau
 
   interval(500).pipe(
-    take(10),
+    take(0),
     map(value => value % 2 === 0 ? 'rouge' : 'jaune'),
     tap(color => console.log(`La lumière s'allume en %c${color}`, `color: ${this.translateColor(color)}`)),
     switchMap(color => this.getTrainObservable$(color)),
@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
   translateColor(color: 'rouge' | 'jaune') {
   return color === 'rouge' ? 'red' : 'yellow';
   }
-}  
+} 
 
     
  
