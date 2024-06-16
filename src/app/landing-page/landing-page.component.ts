@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router} from '@angular/router';
 
 @Component({
@@ -8,6 +9,10 @@ import { Router} from '@angular/router';
 })
 export class LandingPageComponent {
 
+  @ViewChild('emailForm') emailForm!: NgForm;
+
+  userEmail!: string;
+
 /* on injecte le routeur dans le component */
 
 constructor(private router: Router){};
@@ -16,7 +21,16 @@ constructor(private router: Router){};
 
 onContinue(): void {
   this.router.navigateByUrl('facesnaps');
+}
 
+/* afficher la valeur de l'email */
+
+onSubmitForm(form:NgForm): void {
+  if(this.emailForm.invalid) {
+    console.log('Veuillez entrer une adresse mail valide');
+  } else {
+  console.log(form.value);
+  }
 }
 
 }

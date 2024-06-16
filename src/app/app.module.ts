@@ -11,6 +11,8 @@ import { HeaderComponent } from './header/header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { SingleFaceSnapComponent } from './single-face-snap/single-face-snap.component';
+import { FormsModule } from '@angular/forms';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 @NgModule({
@@ -22,11 +24,13 @@ import { SingleFaceSnapComponent } from './single-face-snap/single-face-snap.com
     LandingPageComponent,
     FooterComponent,
     SingleFaceSnapComponent,
+    RegistrationComponent,
   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR' },
@@ -37,4 +41,4 @@ export class AppModule {
   constructor() {
     registerLocaleData(fr.default);
   }
- }
+}

@@ -1,8 +1,18 @@
 <div class="landing-block">
+  <form #emailForm="ngForm" (ngSubmit)="onSubmitForm(emailForm)">
+    <label for="emailInput">Inscrivez-vous pour recevoir notre newsletter !</label>
+    <div>
+      <input type="email" id="emailInput"
+      [(ngModel)] ="userEmail" name="userEmail" required 
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}">
+      <button type="submit" >OK!</button>
+    </div>  
+  </form>
   <div class="landing-links">
     <p>Snapface</p>
     <button class="goSnapface" (click)="onContinue()" >Continuer vers Snapface</button>
   </div>
 </div>
 
-  
+
+

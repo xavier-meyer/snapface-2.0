@@ -4,6 +4,32 @@
   left:50%;
   transform: translate(-50%, -50%);
 
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    div {
+      margin-top: 1rem;
+  
+      button {
+        margin-left: 0.6rem;
+        background-color: green;
+        color: white;
+        border-radius: 0.3rem;
+      }
+
+      input:hover{
+        border-color: green;    
+        background-color: black;
+        color:white;
+      }
+
+    }
+
+  }
+
   p {
     font-size: 5rem;
     font-weight: bold;
